@@ -11,7 +11,7 @@ function getComputerChoice() {
     } else if (num > 0.333333 && num <= 0.666666) {
         choice = "PAPER"
     }
-    console.log(choice)
+    //console.log(choice)
     return choice
 }
 
@@ -58,33 +58,66 @@ function playGame() {
     const paperBtn = document.querySelector("#paper");
     const scissorsBtn = document.querySelector("#scissors");
 
+    const resetBtn = document.querySelector("#reset");
+
     const score = document.querySelector("#score");
 
     rockBtn.addEventListener("click", () => {
-        console.log("ROCK");
+        //console.log("ROCK");
         getHumanChoie("ROCK");
-        score.innerText = ("SCORE H:" + humanScore + " C:" + computerScore)
+        score.innerText = ("SCORE H:" + humanScore + " C:" + computerScore);
+
+        if (humanScore >= 5 || computerScore >= 5) {
+            const picks = document.querySelector("#picks");
+            picks.innerText = "GAME OVER";
+            rockBtn.disabled = true;
+            paperBtn.disabled = true;
+            scissorsBtn.disabled = true;
+        }
     });
 
     paperBtn.addEventListener("click", () => {
-        console.log("PAPER");
+        //console.log("PAPER");
         getHumanChoie("PAPER");
-        score.innerText = ("SCORE H:" + humanScore + " C:" + computerScore)
+        score.innerText = ("SCORE H:" + humanScore + " C:" + computerScore);
+
+        if (humanScore >= 5 || computerScore >= 5) {
+            const picks = document.querySelector("#picks");
+            picks.innerText = "GAME OVER";
+            rockBtn.disabled = true;
+            paperBtn.disabled = true;
+            scissorsBtn.disabled = true;
+        }
     });
 
     scissorsBtn.addEventListener("click", () => {
-        console.log("SCISSORS");
-        getHumanChoie("SCISSORS")
-        score.innerText = ("SCORE H:" + humanScore + " C:" + computerScore)
+        //console.log("SCISSORS");
+        getHumanChoie("SCISSORS");
+        score.innerText = ("SCORE H:" + humanScore + " C:" + computerScore);
+
+        if (humanScore >= 5 || computerScore >= 5) {
+            const picks = document.querySelector("#picks");
+            picks.innerText = "GAME OVER";
+            rockBtn.disabled = true;
+            paperBtn.disabled = true;
+            scissorsBtn.disabled = true;
+        }
     });
 
-    if (humanScore >= 5 || computerScore >= 5){ // Doesn't work, need to figure out order of operations
+     resetBtn.addEventListener("click", () => {
+        humanScore = 0;
+        computerScore = 0;
         const picks = document.querySelector("#picks");
-        picks.innerText = "GAME OVER";
-        rockBtn.disabled = true;
-        paperBtn.disabled = true;
-        scissorsBtn.disabled = true;
-    }
+        picks.innerText = "PICK YOUR CHOICE";
+        const announce = document.querySelector("#announce");
+        announce.innerText = "";
+        const score = document.querySelector("#score");
+        score.innerText = ("SCORE H:" + humanScore + " C:" + computerScore);
+        rockBtn.disabled = false;
+        paperBtn.disabled = false;
+        scissorsBtn.disabled = false;
+    });
+
     return
 }
 
