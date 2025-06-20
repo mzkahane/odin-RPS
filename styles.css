@@ -1,7 +1,13 @@
+@import url(https://fonts.googleapis.com/css2?family=Slackey&display=swap);
+
+
 * {
-    border-style: dotted;
-    border-color: red;
-    border-width: 1px;
+    font-family: Slackey;
+    color: lightgray;
+}
+
+body {
+    background-color:slategrey;
 }
 
 #title {
@@ -55,6 +61,7 @@ button:active {
 #choices {
     display: flex;
     gap: 10px;
+    width: 33.333%;
 }
 
 #reset {

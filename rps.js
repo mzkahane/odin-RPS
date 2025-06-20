@@ -15,7 +15,7 @@ function getComputerChoice() {
     return choice
 }
 
-function getHumanChoie(clicked) {
+function getHumanChoice(clicked) {
     comp = getComputerChoice();
 
     const picks = document.querySelector("#picks");
@@ -64,8 +64,8 @@ function playGame() {
 
     rockBtn.addEventListener("click", () => {
         //console.log("ROCK");
-        getHumanChoie("ROCK");
-        score.innerText = ("SCORE H:" + humanScore + " C:" + computerScore);
+        getHumanChoice("ROCK");
+        score.innerText = ("HUMAN: " + humanScore + " COMPUTER: " + computerScore);
 
         if (humanScore >= 5 || computerScore >= 5) {
             const picks = document.querySelector("#picks");
@@ -78,8 +78,8 @@ function playGame() {
 
     paperBtn.addEventListener("click", () => {
         //console.log("PAPER");
-        getHumanChoie("PAPER");
-        score.innerText = ("SCORE H:" + humanScore + " C:" + computerScore);
+        getHumanChoice("PAPER");
+        score.innerText = ("HUMAN: " + humanScore + " COMPUTER: " + computerScore);
 
         if (humanScore >= 5 || computerScore >= 5) {
             const picks = document.querySelector("#picks");
@@ -92,8 +92,8 @@ function playGame() {
 
     scissorsBtn.addEventListener("click", () => {
         //console.log("SCISSORS");
-        getHumanChoie("SCISSORS");
-        score.innerText = ("SCORE H:" + humanScore + " C:" + computerScore);
+        getHumanChoice("SCISSORS");
+        score.innerText = ("HUMAN: " + humanScore + " COMPUTER: " + computerScore);
 
         if (humanScore >= 5 || computerScore >= 5) {
             const picks = document.querySelector("#picks");
@@ -112,7 +112,7 @@ function playGame() {
         const announce = document.querySelector("#announce");
         announce.innerText = "";
         const score = document.querySelector("#score");
-        score.innerText = ("SCORE H:" + humanScore + " C:" + computerScore);
+        score.innerText = ("HUMAN :" + humanScore + " COMPUTER :" + computerScore);
         rockBtn.disabled = false;
         paperBtn.disabled = false;
         scissorsBtn.disabled = false;
